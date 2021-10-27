@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>GrandPyBot</title>
+
+</head>
+
+<body>
+    <nav class="col-12 navbar navbar-dark" id="mainNav" class="text-center">
+        <div class="container bg-dark">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-4">
+                        <img src="../static/images/papy.png" widtnavbar-darkh="50" height="50" alt="Info Logo" />
+                    </div>
+                    <div class="col-5">
+                        <a class="nav-link" href="./home.html">GrandPy Bot</a>
+                    </div>
+                    <div class="clo-4">
+                        <a class="nav-link" href="./presentation.html">Qui suis-je?</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="card">
+                <div class="col-lg-12">
+                    <div class="jumbotron">
+                        <h1 style="color:#0026ff;">Bienvenue chez GrandPy!</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="card">
+                <img src="../static/images/papy.png" alt="grandpa" class="card-img-top">
+                <div class="card-body">
+                    <div class="panel-body">
+                        <div id="chat-box" class="chats">
+                            <div class="chat chat-left">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <form id="user-text-form" action="">
+                    <div class="input-group">
+                        <input id="question" name="question" type="text" maxlength="100" class="form-control"
+                            placeholder="Dis moi mon petit comment Papy peut t'aider et où désires-tu aller ?" required>
+                        <span class="input-group-btn">
+                            <button class="btn btn-secondary" id="demand" type="submit">Chercher</button>
+                        </span>
+                    </div>
+                </form>
+                <script>
+                    let form = document.querySelector("#user-text-form");
+                    form.addEventListener("submit", function (event) {
+                        event.preventDefault();
+                        //Envoyer le contenue du formulaire au serveur
+                        fetch("/ajax", { method: "POST", body: new FormData(form) });
+                    })
+                </script>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <hr class="star-light">
+                <p class="response" id="response" name="response">{{response}}</p>
+            </div>
+        </div>
+    </div>
+    <div class=" row">
+        <div class="card" style="position:absolute; bottom: 150px; left:18%;">
+            <div class="col">
+                <h3 style="color:#00a2ff">Si vous êtes perdus alors papy-robot peut vous ramener où vous
+                    voulez
+                </h3>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    <footer class="text-center">
+        <div class="footer-below" style="position:absolute; bottom: 0px; right:50%;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <hr class="star-light">
+                        <span class="italic">Professional accounts : </span>
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="https://github.com/HBaraa" class="btn-social btn-outline"
+                                    target="_blank">Github<i class="fa fa-fw fa-github"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/in/baraa-hamdi-294682178/"
+                                    class="btn-social btn-outline" target="_blank">LinkedIn</a>
+                            </li>
+                        </ul>
+                        <hr class="star-light">
+                        <span class="italic">Copyright &copy; <a
+                                href="https://github.com/HBaraa/HBaraa-Projet7-Papy-robot" target="_blank">Hamdi
+                                Baraa</a> </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <!-- Core theme JS-->
+</body>
+
+</html>
