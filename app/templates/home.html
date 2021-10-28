@@ -55,9 +55,9 @@
                 </div>
             </div>
             <div class="card-body">
-                <form id="user-text-form" action="">
+                <form id="user-text-form">
                     <div class="input-group">
-                        <input id="question" name="question" type="text" maxlength="100" class="form-control"
+                        <input id="question" name="question" type="text" maxlength="100" class="form-control question"
                             placeholder="Dis moi mon petit comment Papy peut t'aider et où désires-tu aller ?" required>
                         <span class="input-group-btn">
                             <button class="btn btn-secondary" id="demand" type="submit">Chercher</button>
@@ -68,8 +68,10 @@
                     let form = document.querySelector("#user-text-form");
                     form.addEventListener("submit", function (event) {
                         event.preventDefault();
-                        //Envoyer le contenue du formulaire au serveur
-                        fetch("/ajax", { method: "POST", body: new FormData(form) });
+                        fetch("/ajax", {
+                            method: "POST",
+                            body: new FormData(form)
+                        });
                     })
                 </script>
             </div>
