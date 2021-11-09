@@ -5,19 +5,12 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python : Fichier actuel",
-            "type": "python",
-            "request": "launch",
-            "program": "${file}",
-            "console": "integratedTerminal"
-        },
-        {
             "name": "Python : Flask",
             "type": "python",
             "request": "launch",
             "module": "flask",
             "env": {
-                "FLASK_APP": "app.views.py",
+                "FLASK_APP": "main.py",
                 "FLASK_ENV": "development"
             },
             "args": [
@@ -25,6 +18,13 @@
                 "--no-debugger"
             ],
             "jinja": true
+        },
+        {
+            "name": "Python : Fichier actuel",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
         }
     ]
 }
