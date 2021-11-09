@@ -3,5 +3,5 @@
 def script():
     infos = get_datas("openclassrooms")
     print(infos)
-    
+
 
