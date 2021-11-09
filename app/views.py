@@ -3,9 +3,9 @@ import json
 from werkzeug.wrappers import response
 from django.shortcuts import render
 from django.http import HttpResponse
-from apption.utils import  text_parser
-from apption.wiki_api_interaction import get_datas
-from apption.application import script
+from utils import  text_parser
+from wiki_api_interaction import get_datas
+from application import script
 
 
 app = Flask(__name__)
