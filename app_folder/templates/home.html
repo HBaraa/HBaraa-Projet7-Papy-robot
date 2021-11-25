@@ -1,0 +1,148 @@
+﻿{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="home" id="home" style=" visibility:visible; ">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="jumbotron">
+                    <h1 style="color:#0026ff; ">Bienvenue chez GrandPy!</h1>
+                </div>
+            </div>
+        </div>
+        <section class="main-section" id="signup">
+            <div class="row">
+                <div class="col-lg-12  text-center">
+                    <div class="panel">
+                        <div>
+                            <h3 class="panel-title">
+                                <i class="icon wb-chat-text" aria-hidden="true"></i>Tu cherches un lieu?
+                            </h3>
+                        </div>
+                        <div class="panel-body">
+                            <div id="chat-box" class="chats">
+                                <div class="chat chat-left">
+                                    <div class="chat-avatar">
+                                        <a class="avatar avatar-online" data-toggle="tooltip" href="#"
+                                            data-placement="left" title="">
+                                            <i></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Panel Chat -->
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-12 mx-auto text-center">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="card" style="background-color: rgb(243, 188, 231);">
+                                        <div class="card-body">
+                                            <div class="chat-body" style="background-color:rgb(152, 205, 240)">
+                                                <div class="chat-content">
+                                                    <div class="description" id="description" name="description">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <form id="user-text-form">
+                                            <div class="input-group">
+                                                <input id="question" name="question" type="text" maxlength="100"
+                                                    class="form-control"
+                                                    placeholder="Dis moi mon petit comment Papy peut t'aider et où désires-tu aller ?"
+                                                    required>
+                                                <span class="input-group-btn">
+                                                    <button class="btn btn-secondary" id="demand"
+                                                        type="submit">Chercher</button>
+                                                </span>
+                                                <div id="output"></div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<div id="grandpa-answer">
+    <div class="card">
+        <div class="card-body">
+            <hr class="star-light">
+        </div>
+    </div>
+    <div class=" row">
+        <div class="card" style="position:absolute; bottom: 150px; left:18%;">
+            <div class="col">
+                <h3 style="color:#00a2ff">Si vous êtes perdus alors papy-robot peut vous ramener où vous
+                    voulez
+                </h3>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="presentation" style=" visibility:hidden; position:absolute; left: 20%; top:25%;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card" style="background-color: rgb(119, 220, 238);">
+                    <img src="../static/images/me.png" alt=" me" class="card-img-top"
+                        style="width: 100px; height: 100px;">
+                    <div class="card-body">
+                        <h4 class="text-center" style=" color:#2a1baf;">Hamdi Baraa</h4>
+                        <hr class="star-light">
+                        <h5 class="text-center" style="font-style: italic;"> <strong>
+                                Ingénieure
+                                mécatronicienne
+                                et étudiante chez
+                                OpenClasrooms </strong></h5>
+                        <hr class="star-light">
+                        <p class="text-center" style="font-style: italic">J'ai réalisé ce projet avec une
+                            grande
+                            motivation dans le cadre
+                            du projet
+                            7
+                            du parcours de développeur d'application chez OpenClassrooms</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="load" class="load"
+    style=" visibility:hidden; width: 300px; height: 350px; position:absolute; left: 40%; top:25%;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <img src="../static/images/load_pic.gif" alt="loading" />
+            </div>
+        </div>
+    </div>
+</div>
+<div id="grandpa" class="grandpa" style=" visibility:hidden;  position:absolute; left: 16%; top:25%;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card" style="background-color: rgb(233, 124, 151);">
+                    <div class="col-lg-12">
+                        <h1>Search result </h1>
+                        <p id="information" class="information" name="information">{{informations}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
