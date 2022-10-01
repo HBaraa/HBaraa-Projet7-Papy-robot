@@ -2,4 +2,4 @@
 
 app = Flask(__name__)
 
-from . import views
+from app_folder import views

@@ -1,10 +1,10 @@
 ﻿import requests
 
-from app_folder.grandpyBot.map_api import ApiMap
+from ..PapyRobot.GoogleApi import ApiGoogleAccess
 
-apiMap = ApiMap("Openclassrooms")
+GoogleAccess = ApiGoogleAccess("Openclassrooms")
 
-def test_ApiMap(monkeypatch):
+def test_ApiGooGle(monkeypatch):
     results = {'results': [
         {'address_components': [
             {'long_name': '10', 'short_name': '10', 'types': ['street_number']},
@@ -20,10 +20,10 @@ def test_ApiMap(monkeypatch):
                         'southwest': {'lat': 48.8961666197085, 'lng': 2.382050319708498}}},
         'place_id': 'ChIJIZX8lhRu5kcRGwYk8Ce3Vc8', 'plus_code': {'compound_code': 'V9XM+29 Paris, France', 'global_code': '8FW4V9XM+29'}, 'types': ['establishment', 'point_of_interest']}], 'status': 'OK'}
 
-    def mockApiMap():
+    def mockApiGooGle():
         return results
 
-    monkeypatch.setattr(requests, 'get', mockApiMap)
+    monkeypatch.setattr(requests, 'get', mockApiGooGle)
 
-    assert apiMap.adress == '10 Quai de la Charente, 75019 Paris, France' or "Je n'ai pas compris ce que tu m'as dis mon poussin"
-    assert apiMap.adressMap == apiMap.adress.replace(' ', "+")
+    assert GoogleAccess.adress == '10 Quai de la Charente, 75019 Paris, France' or "Je n'ai pas compris ce que tu m'as dis mon poussin"
+    assert GoogleAccess.adressMap == GoogleAccess.adress.replace(' ', "+")

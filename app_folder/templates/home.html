@@ -2,96 +2,66 @@
 
 {% block content %}
 <div class="container">
-    <div class="home" id="home" style=" visibility:visible; ">
+    <div class="home" id="home" style=" visibility:visible; " style="position:relative; top: 100px;">
         <div class="row">
-            <div class="col-lg-12">
-                <div class="jumbotron">
-                    <h1 style="color:#0026ff; ">Bienvenue chez GrandPy!</h1>
-                </div>
+            <div class="col-lg-12" style="position:relative;  width:30px; height:30px; top:10px;">
+                <h3 style="color:#0026ff; ">Bienvenue chez GrandPy! 👴🤖</h3>
             </div>
         </div>
-        <section class="main-section" id="signup">
-            <div class="row">
-                <div class="col-lg-12  text-center">
-                    <div class="panel">
-                        <div>
-                            <h3 class="panel-title">
-                                <i class="icon wb-chat-text" aria-hidden="true"></i>Tu cherches un lieu?
-                            </h3>
+        <div class="row" style="position:relative; top:0px;">
+            <div class=" col-lg-12 text-center d-block w-800">
+                <section class="main-section" id="signup" style="position:relative; top:40px;">
+                    <div class="card" style="background-color: rgba(241, 213, 243, 0.986);border: 1px solid rgba(226, 176, 230, 0.986); padding:12px;
+                    margin-bottom:20px;">
+                        <div class="card-body">
+                            <h3>Tu cherches un lieu?</h3>
+                            <div class="chat-box" id="chat-box">
+                                <div class="question"></div>
+                            </div>
                         </div>
-                        <div class="panel-body">
-                            <div id="chat-box" class="chats">
-                                <div class="chat chat-left">
+                    </div>
+                    <div class="d-block w-400 ">
+                    </div>
+                    <div class="card" style="border: 1px solid black;">
+                        <div class="card-body">
+                            <form id="user-text-form">
+                                <div class="input-group">
                                     <div class="chat-avatar">
                                         <a class="avatar avatar-online" data-toggle="tooltip" href="#"
                                             data-placement="left" title="">
                                             <i></i>
                                         </a>
                                     </div>
+                                    <input id="question" name="question" type="text" maxlength="100"
+                                        class="form-control"
+                                        placeholder="Dis moi mon petit comment Papy peut t'aider et où désires-tu aller ?"
+                                        required>
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-secondary" id="demand" type="submit">Chercher</button>
+                                    </span>
+                                    <div id="output"></div>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
-                    <!-- Panel Chat -->
-                </div>
+                </section>
             </div>
-            <div class="card">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-lg-12 mx-auto text-center">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="card" style="background-color: rgb(243, 188, 231);">
-                                        <div class="card-body">
-                                            <div class="chat-body" style="background-color:rgb(152, 205, 240)">
-                                                <div class="chat-content">
-                                                    <div class="description" id="description" name="description">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <form id="user-text-form">
-                                            <div class="input-group">
-                                                <input id="question" name="question" type="text" maxlength="100"
-                                                    class="form-control"
-                                                    placeholder="Dis moi mon petit comment Papy peut t'aider et où désires-tu aller ?"
-                                                    required>
-                                                <span class="input-group-btn">
-                                                    <button class="btn btn-secondary" id="demand"
-                                                        type="submit">Chercher</button>
-                                                </span>
-                                                <div id="output"></div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </div>
     </div>
 </div>
-<div id="grandpa-answer">
-    <div class="card">
+<div class=" row">
+    <div class="card" style="position:absolute; bottom: 150px; right:32%;">
+        <img class=”card-img-top” src="../static/images/papy.png" height="40" width="40">
         <div class="card-body">
-            <hr class="star-light">
-        </div>
-    </div>
-    <div class=" row">
-        <div class="card" style="position:absolute; bottom: 150px; left:18%;">
             <div class="col">
-                <h3 style="color:#00a2ff">Si vous êtes perdus alors papy-robot peut vous ramener où vous
+                <h5 style="color:#00a2ff">Si vous êtes perdus alors papy-robot peut vous ramener où vous
                     voulez
-                </h3>
-
+                </h5>
             </div>
         </div>
     </div>
 </div>
-
-<div id="presentation" style=" visibility:hidden; position:absolute; left: 20%; top:25%;">
+<div id="presentation" style=" visibility:hidden; position:absolute; left: 20%; top:20%;">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -129,20 +99,25 @@
         </div>
     </div>
 </div>
-<div id="grandpa" class="grandpa" style=" visibility:hidden;  position:absolute; left: 16%; top:25%;">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
+<div class="container" style=" position:absolute; left:16%; top:10%;">
+    <div class="row">
+        <div class="col-lg-4 col-md-3">
+            <div class="grandpa" id="grandpa" style=" visibility:hidden;">
                 <div class="card" style="background-color: rgb(233, 124, 151);">
-                    <div class="col-lg-12">
+                    <div class="col-lg-12 ">
                         <h1>Search result </h1>
-                        <p id="information" class="information" name="information">{{informations}}</p>
+                        <p id="information" class="information" name="information"></p>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8 col-md-3" >
+            <div class="card">
+                <div calss="map" id="map"  style="visibility:hidden; position: absolute; top: 0; bottom: 0; width: 100%; height: 400px;  /* or as desired */ width: 100%; visibility: hidden ">
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 
 {% endblock %}
