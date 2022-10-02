@@ -95,6 +95,7 @@ form.addEventListener("submit", function (event) {
             words_list = response['reponse'];
             greeting = response['greeting'];
             coords = response["geodatas"];
+            address = response["adress"];
             function initialize() {
                 var map = L.map('map').setView(coords, 7); // LIGNE 18
                 var marker = L.marker(coords).addTo(map);
@@ -188,7 +189,7 @@ form.addEventListener("submit", function (event) {
                             load_pic.style.visibility = "visible";
                         }, 500);
                         setTimeout(() => {
-                            infos_displayed.append(response["datas"]);
+                            infos_displayed.append("L'adresse est  :  ", response["address"], "               .............                ", response["datas"]);
                             load_pic.style.visibility = "hidden";
                             show_info.style.visibility = "visible";
                             mapdisp.style.visibility = "visible";
@@ -228,5 +229,3 @@ startpresent.addEventListener("click", function (event) {
     show_info.style.visibility = "hidden";
     present.style.visibility = "visible";
 })
-
-

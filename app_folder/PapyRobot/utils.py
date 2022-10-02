@@ -36,36 +36,37 @@ GREETING_LIST = ["salut", "bonjour", "bonjours",
 
 
 def detect_salutation(message):
-        # 0 : No greetings / 1 : Greeting detected
-        salutations = 0
-        saluer_word = ""
+    # 0 : No greetings / 1 : Greeting detected
+    salutations = 0
+    saluer_word = ""
 
-        for salutation in GREETING_LIST:
-            if salutation in message:
-                saluer_word = salutation
-                message = message.replace(salutation, "")
-                salutations = 1
+    for salutation in GREETING_LIST:
+        if salutation in message:
+            saluer_word = salutation
+            message = message.replace(salutation, "")
+            salutations = 1
 
-        return {"msg": message,"greeting_word":saluer_word, "greeting": salutations}
+    return {"msg": message, "greeting_word": saluer_word, "greeting": salutations}
 
 
 def remove_special_char(msg):
-        for i in msg:
-            if i in "['\"/\\:?!-}><(){,]":
-                # To keep separate {it's -> it s etc..}
-                if i in ",-'\"":
-                    msg = msg.replace(i, " ")
-                else:
-                    msg = msg.replace(i, "")
-        return msg
+    for i in msg:
+        if i in "['\"/\\:?!-}><(){,]":
+            # To keep separate {it's -> it s etc..}
+            if i in ",-'\"":
+                msg = msg.replace(i, " ")
+            else:
+                msg = msg.replace(i, "")
+    return msg
 
-def filtred_text(words_list):
-    text_filtred = ""
-    for word in words_list:
-        text_filtred += word
-        text_filtred += " "
-    final_text = text_filtred[:-1]
-    return final_text
+# def filtred_text(words_list):
+#    text_filtred = ""
+#    for word in words_list:
+#        text_filtred += word
+#        text_filtred += " "
+#    final_text = text_filtred[:-1]
+#    return final_text
+
 
 def add_random_quotes(searched_title, sentence):
     first_quotes_list = FIRST_RANDOM_QUOTES
@@ -75,8 +76,8 @@ def add_random_quotes(searched_title, sentence):
     text_final = added_sentence + " " + searched_title.capitalize() +" 🧐 " + " ;   " + sentence
     return text_final
 
-def is_empty(dict):
-    if not bool(dict):
-        return True
-    else:
-        return False
+# def is_empty(dict):
+#     if not bool(dict):
+#        return True
+#    else:
+#        return False

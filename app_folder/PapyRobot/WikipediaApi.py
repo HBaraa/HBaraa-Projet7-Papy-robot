@@ -55,7 +55,7 @@ def search_page_by_geo(place, coords: Dict[str, float]) -> Dict[str, Any]:
         "action": "query",
         "format": "json",
         "list": "geosearch",
-        "gscoord": f"{lng}|{lat}",
+        "gscoord": f"{lat}|{lng}",
     }
     req = requests.get(url, params=params)
     info = req.json()

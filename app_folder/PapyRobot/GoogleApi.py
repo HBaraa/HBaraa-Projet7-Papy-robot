@@ -15,40 +15,35 @@ class ApiGoogleAccess:
         """
 
         self.keyWord = keyWord
-        self.urlMap = f"https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=AIzaSyCRyU2shTW0xbnr_-3hjim_E1K9pE0G4LQ"
+        self.urlMap = f"https://maps.googleapis.com/maps/api/geocode/json?address={self.keyWord}&key={SECRET_KEY}"
         self.adress = self.get_adress()
-        self.coordinates = self.get_coordinates()
-        self.adressMap = self.get_adress_map()
-        self.imgMap = self.get_imgMap()
 
     def get_adress(self):
         if self.keyWord != "":
             response = requests.get(self.urlMap)
             if response.status_code == 200:
                 content = response.json()
-                if content['results'] != []:
-                    return content["results"][0]['formatted_address']
+                if content["results"] != []:
+                    return content["results"][0]["formatted_address"]
                 else:
-                    return "Je n'ai pas compris ce que tu m'as dis mon petit"
+                    return "Je n'ai pas compris ce que tu m'as dis mon poussin"
         else:
-            return "Je n'ai pas compris ce que tu m'as dis mon petit"
+            return "Je n'ai pas compris ce que tu m'as dis mon poussin"
 
     def get_coordinates(self):
         response = requests.get(self.urlMap)
         response = response.json()
         result = response['results'][0]
-        coordinates = []
-        coordinates[0] = result['geometry']['location']['lat']
-        coordinates[1] = result['geometry']['location']['lng']
-        return coordinates
+        info = result['geometry']['location']
+        return info
 
-if __name__ == "__main__":
-    apiAccess = ApiGoogleAccess("")
-    print(apiAccess.keyWord)
-    print(apiAccess.adress)
-    print(apiAccess.coordinates)
+# if __name__ == "__main__":
+#     apiAccess = ApiGoogleAccess("")
+#    print(apiAccess.keyWord)
+#    print(apiAccess.adress)
+#    print(apiAccess.coordinates)
     # print(apiMap1.adressMap)
-    print(apiAccess.urlMap)
+#    print(apiAccess.urlMap)
     # print(apiMap1.imgMap)
 
 
