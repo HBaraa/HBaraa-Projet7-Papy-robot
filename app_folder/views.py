@@ -1,15 +1,11 @@
-﻿from flask import  Flask, render_template, jsonify, request
+﻿from flask import render_template, jsonify, request
 from . import app
 
-from app_folder.PapyRobot.resp_treatment import TreatResponse, ParseResponse
+from app_folder.PapyRobot.resp_treatment import ParseResponse
 
 
 @app.route("/")
 def home():
-    infos = ajax()
-    # print(type(infos))
-    # print(infos)
-    # print("******Youpyyyyy=====")
     return render_template("home.html")
 
 

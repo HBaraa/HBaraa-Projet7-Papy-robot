@@ -615,6 +615,10 @@
     "ô",
 ]
 LIST_PERSONALIZED = [
-     "papy", "robot", "peux", "connais", "donner", "trouve", "se", "?", "!", "donner"]
-KEY_WORDS = ["ville", "pays", "région", "village", "montagne",
-    "rue", "avenue", "place", "localité", "lieu-dit", "adress"]
+    "papy", "robot", "peux", "connais", "donner", "trouve", "se", "?", "!",
+    "donner"
+]
+KEY_WORDS = [
+    "ville", "pays", "région", "village", "montagne",
+    "rue", "avenue", "place", "localité", "lieu-dit", "adress"
+]

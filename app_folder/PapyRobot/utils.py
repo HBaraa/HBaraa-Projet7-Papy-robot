@@ -1,13 +1,13 @@
-﻿from typing import List
-import random
+﻿import random
 
 from .stop_words import STOP_WORDS, LIST_PERSONALIZED, KEY_WORDS
 from .random_quotes import FIRST_RANDOM_QUOTES
 
+
 def transform_to_upper(text):
     return {
         "text_original": text,
-        "text_transformed" : text.upper()
+        "text_transformed": text.upper()
     }
 
 
@@ -46,7 +46,11 @@ def detect_salutation(message):
             message = message.replace(salutation, "")
             salutations = 1
 
-    return {"msg": message, "greeting_word": saluer_word, "greeting": salutations}
+    return {
+        "msg": message,
+        "greeting_word": saluer_word,
+        "greeting": salutations
+        }
 
 
 def remove_special_char(msg):
@@ -59,25 +63,11 @@ def remove_special_char(msg):
                 msg = msg.replace(i, "")
     return msg
 
-# def filtred_text(words_list):
-#    text_filtred = ""
-#    for word in words_list:
-#        text_filtred += word
-#        text_filtred += " "
-#    final_text = text_filtred[:-1]
-#    return final_text
-
 
 def add_random_quotes(searched_title, sentence):
     first_quotes_list = FIRST_RANDOM_QUOTES
     nbr = len(first_quotes_list)
     n = random.randint(0, nbr-1)
     added_sentence = first_quotes_list[n]
-    text_final = added_sentence + " " + searched_title.capitalize() +" 🧐 " + " ;   " + sentence
+    text_final = added_sentence + " " + searched_title.capitalize()+" 🧐 " + " ;   " + sentence
     return text_final
-
-# def is_empty(dict):
-#     if not bool(dict):
-#        return True
-#    else:
-#        return False

@@ -1,5 +1,5 @@
 ﻿import requests
-import pprint
+
 
 def get_wiki_title(coordinates):
 
@@ -29,6 +29,7 @@ def get_wiki_title(coordinates):
         title = wiki_data[0]["title"]
         return title
 
+
 def text_data(title):
     text_title = str(title)
 
@@ -42,11 +43,9 @@ def text_data(title):
     url = f"{api_begin}{api_mid}{api_title}{api_param}"
 
     extract_data = requests.get(url).json()
-    print(extract_data)
+    # print(extract_data)
     anecdote = extract_data["query"]["pages"][0]
-    #infos = anecdote["extract"]
-    print(anecdote)
-    #print(infos)
+    # print(anecdote)
     if len(anecdote) <= 3:
         return None
     else:

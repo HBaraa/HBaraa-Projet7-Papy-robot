@@ -1,9 +1,5 @@
 ﻿from app_folder.PapyRobot.utils import text_parser, GREETING_LIST, detect_salutation, add_random_quotes
-from app_folder.PapyRobot.WikipediaApi import ApiWikiMedia, search_page_by_geo
 from app_folder.PapyRobot.GoogleApi import ApiGoogleAccess
-from .config import SECRET_KEY
-import requests
-import json
 from .wki_api import get_wiki_title, text_data
 
 
@@ -18,7 +14,7 @@ class ParseResponse:
         lng = 0
         place = ""
         hyst = ""
-        address =""
+        address = ""
         for word in response:
             message = detect_salutation(word)
         # print(message)
@@ -64,29 +60,23 @@ class TreatResponse:
             pass
         else:
             for (i, item) in enumerate(self.resp, start=1):
-                print(i, item)
+                # print(i, item)
                 if item != "" or " ":
                     place += item
                     place += " "
                 else:
                     pass
-            print("OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
-            print(place)
+            # print(place)
             gaccess = ApiGoogleAccess(place)
             address = gaccess.get_adress()
-            print(address)
+            # print(address)
             geocoord = gaccess.get_coordinates()
-            print(geocoord)
+            # print(geocoord)
             lat = geocoord["lat"]
             lng = geocoord["lng"]
             titlepl = get_wiki_title(geocoord)
-            print(titlepl)
+            # print(titlepl)
             pdatas = text_data(titlepl)
-            print(pdatas)
-            print("YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY")
-            info_to_display = address + pdatas
-            print("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh")
-            print(info_to_display)
-            print("HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH")
+            # print(pdatas)
             return place, lng, lat, address, pdatas
 
