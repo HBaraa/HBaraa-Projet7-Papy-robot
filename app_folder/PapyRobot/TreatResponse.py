@@ -1,6 +1,6 @@
-﻿from app_folder.PapyRobot.utils import text_parser, GREETING_LIST, detect_salutation, add_random_quotes
+﻿from app_folder.PapyRobot.ParseText import text_parser, GREETING_LIST, detect_salutation, add_random_quotes
 from app_folder.PapyRobot.GoogleApi import ApiGoogleAccess
-from .wki_api import get_wiki_title, text_data
+from .WikipediaApi import get_wiki_title, text_data
 
 
 class ParseResponse:
