@@ -1,7 +1,7 @@
 ﻿from flask import render_template, jsonify, request
 from . import app
 
-from app_folder.PapyRobot.TreatResponse import ParseResponse
+from app_folder.papy_robot.treat_response import ParseResponse
 
 
 @app.route("/")
