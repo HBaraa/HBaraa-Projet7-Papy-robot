@@ -33,9 +33,9 @@ class ApiGoogleAccess:
                     self.coords = add_data['geometry']['location']
                     return place_adress
                 else:
-                    return "Je n'ai pas compris ce que tu m'as dis mon poussin"
+                    return "Je n'ai pas compris ce que tu m'as dis mon petit"
         else:
-            return "Je n'ai pas compris ce que tu m'as dis mon poussin"
+            return "Je n'ai pas compris ce que tu m'as dis mon petit"
 
     def get_coordinates(self):
         return self.coords

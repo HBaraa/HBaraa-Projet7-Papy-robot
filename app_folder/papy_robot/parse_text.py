@@ -4,13 +4,6 @@ from .stop_words import STOP_WORDS, LIST_PERSONALIZED, KEY_WORDS
 from .random_quotes import FIRST_RANDOM_QUOTES
 
 
-def transform_to_upper(text):
-    return {
-        "text_original": text,
-        "text_transformed": text.upper()
-    }
-
-
 def text_parser(phrase):
     words = []
     message = phrase.lower()
@@ -53,21 +46,10 @@ def detect_salutation(message):
         }
 
 
-def remove_special_char(msg):
-    for i in msg:
-        if i in "['\"/\\:?!-}><(){,]":
-            # To keep separate {it's -> it s etc..}
-            if i in ",-'\"":
-                msg = msg.replace(i, " ")
-            else:
-                msg = msg.replace(i, "")
-    return msg
-
-
 def add_random_quotes(searched_title, sentence):
     first_quotes_list = FIRST_RANDOM_QUOTES
     nbr = len(first_quotes_list)
     n = random.randint(0, nbr-1)
     added_sentence = first_quotes_list[n]
-    text_final = added_sentence + " " + searched_title.capitalize()+" 🧐 " + " ;   " + sentence
+    text_final = added_sentence + " " + searched_title.capitalize()+" 🧐 " + " ;   " + sentence   # noqa
     return text_final

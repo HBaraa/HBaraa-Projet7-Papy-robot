@@ -4,6 +4,14 @@
 class ApiWikiTitle:
 
     def __init__(self, coordinates):
+        """
+            The ApiWikiTitle class retrieves the title linked to geographic
+            coordinates.
+            Args:
+            coordinates (dict): coordinates is the dictionnary .
+            Returns:
+            str: the class returns the title of the page wikipedia searched
+        """
         self.coordinates = coordinates
         self.title = self.get_wiki_title()
 
@@ -25,7 +33,6 @@ class ApiWikiTitle:
         geo_data = requests.get(url).json()
 
         # ATTRIBUTE RESPONSE
-        print(geo_data)
         wiki_data = geo_data["query"]["geosearch"]
 
         # IF RESPONSE IS EMPTY RETURN NONE
@@ -39,6 +46,15 @@ class ApiWikiTitle:
 
 class WikipediaHistory:
     def __init__(self, title):
+        """
+            The WikipediaHistory class retrieves informations about the title
+            searched.
+            Args:
+            title (str): The title of the page Wikipedia.
+            Returns:
+            str: the class returns the history (informations)
+            of the title searched.
+        """
         self.title = title
         self.anecdote = ""
         self.infos = self.text_data()
@@ -54,12 +70,9 @@ class WikipediaHistory:
         )
         url = f"{api_begin}{api_mid}{api_title}{api_param}"
         extract_data = requests.get(url).json()
-        print(extract_data)
         self.anecdote = extract_data["query"]["pages"][0]
-        print(self.anecdote)
         if len(self.anecdote) <= 3:
             return None
         else:
             self.infos = self.anecdote["extract"]
-            print(self.infos)
             return self.infos
