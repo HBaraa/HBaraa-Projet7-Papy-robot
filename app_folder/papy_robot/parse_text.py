@@ -24,6 +24,15 @@ def text_parser(phrase):
     return words
 
 
+def remove_special_char(msg):
+    for i in msg:
+        if i in "['\"/\\:?!-}><(){,]":
+            if i in ",-'\"":
+                msg = msg.replace(i, " ")
+            else:
+                msg = msg.replace(i, "")
+
+
 GREETING_LIST = ["salut", "bonjour", "bonjours",
                           "coucou", "hey", "ahoy"]
 

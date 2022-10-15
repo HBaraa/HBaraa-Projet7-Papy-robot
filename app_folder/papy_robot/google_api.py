@@ -27,7 +27,7 @@ class ApiGoogleAccess:
             if response.status_code == 200:
                 content = response.json()
                 if content["results"]:
-                    print(content["results"])
+                    # print(content["results"])
                     add_data = content["results"][0]
                     place_adress = add_data["formatted_address"]
                     self.coords = add_data['geometry']['location']
