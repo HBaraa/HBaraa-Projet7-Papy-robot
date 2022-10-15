@@ -8,10 +8,13 @@ def test_detect_greetings():
     assert tester["greeting"] == 1
 
 
-def test_removed_specialchar():
-    mock_message = 'je ()cherche l\'adresse d\'openclassrooms{[:!]}'
-    msg = remove_special_char(mock_message)
-    assert msg == "je cherche l adresse d openclassrooms"
+def remove_special_char(msg):
+    for i in msg:
+        if i in "['\"/\\:?!-}><(){,]":
+            if i in ",-'\"":
+                msg = msg.replace(i, " ")
+            else:
+                msg = msg.replace(i, "")
 
 
 def test_clean_message():
