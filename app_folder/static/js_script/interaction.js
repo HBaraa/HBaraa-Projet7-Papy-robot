@@ -107,8 +107,8 @@ form.addEventListener("submit", function (event) {
                 map.addLayer(osmLayer);
             }
             initialize()
-            console.log(response);
-            console.log(words_list);
+            // console.log(response);
+            // console.log(words_list);
             function strUcFirst(a) { return (a + '').charAt(0).toUpperCase() + a.substr(1); }
             let greet_sentence = strUcFirst(response['greeting']);
             // console.log(greeting);
@@ -116,7 +116,7 @@ form.addEventListener("submit", function (event) {
                 if (words_list == "") {
                     showtext = "Bonjour mon petit, j'ai pas compris ce que tu m'as dit 🤷‍♂️.Dis à papi clairement tu cherche quel endroit";
                     papiresp = "Ok papi, je reformulerais ma demande";
-                    console.log(showtext);
+                    // console.log(showtext);
                     linkref = "http://127.0.0.1:5000/"
                     show_info.style.visibility = "hidden";
                 }
@@ -134,7 +134,7 @@ form.addEventListener("submit", function (event) {
                 if (words_list == "") {
                     showtext = greet_sentence + " mon poussin 👋 , dis moi mon petit tu cherches quel endroit ?";
                     papiresp = "Ok papi, je t'explique ma demande";
-                    console.log(showtext);
+                    // console.log(showtext);
                     linkref = "http://127.0.0.1:5000/"
                 }
                 else {
