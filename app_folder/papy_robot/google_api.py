@@ -20,11 +20,14 @@ class ApiGoogleAccess:
         self.urlMap = f"https://maps.googleapis.com/maps/api/geocode/json?address={self.keyWord}&key={SECRET_KEY}"   # noqa
         self.coords = {}
         self.adress = self.get_adress()
+        self.msgerr = ""
+        self.status = 0
 
     def get_adress(self):
         if self.keyWord != "":
             response = requests.get(self.urlMap)
-            if response.status_code == 200:
+            self.status = response.status_code
+            if self.status == 200:
                 content = response.json()
                 if content["results"]:
                     # print(content["results"])
@@ -33,9 +36,11 @@ class ApiGoogleAccess:
                     self.coords = add_data['geometry']['location']
                     return place_adress
                 else:
-                    return "Je n'ai pas compris ce que tu m'as dis mon petit"
-        else:
-            return "Je n'ai pas compris ce que tu m'as dis mon petit"
+                    self.msgerr = "Je n'ai pas compris ce que tu m'as dis mon petit"     # noqa
+                    return self.msgerr
+            else:
+                self.msgerr = "Je n'ai pas compris ce que tu m'as dis mon petit"     # noqa
+                return self.msgerr
 
     def get_coordinates(self):
         return self.coords

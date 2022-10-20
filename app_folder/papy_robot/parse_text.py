@@ -3,6 +3,9 @@
 from .stop_words import STOP_WORDS, LIST_PERSONALIZED, KEY_WORDS
 from .random_quotes import FIRST_RANDOM_QUOTES
 
+GREETING_LIST = ["salut", "bonjour", "bonjours", "hi",
+                          "coucou", "hey", "ahoy", "hello"]
+
 
 def text_parser(phrase):
     words = []
@@ -19,6 +22,10 @@ def text_parser(phrase):
             words.remove(word)
             word = word
             words.append(word)
+            if words in GREETING_LIST:
+                words.remove(word)
+            else:
+                pass
         else:
             pass
     return words
@@ -31,10 +38,6 @@ def remove_special_char(msg):
                 msg = msg.replace(i, " ")
             else:
                 msg = msg.replace(i, "")
-
-
-GREETING_LIST = ["salut", "bonjour", "bonjours",
-                          "coucou", "hey", "ahoy"]
 
 
 def detect_salutation(message):
@@ -59,6 +62,6 @@ def add_random_quotes(searched_title, sentence):
     first_quotes_list = FIRST_RANDOM_QUOTES
     nbr = len(first_quotes_list)
     n = random.randint(0, nbr-1)
-    added_sentence = first_quotes_list[n]
-    text_final = added_sentence + " " + searched_title.capitalize()+" 🧐 " + " ;   " + sentence   # noqa
+    added_sentence = str(first_quotes_list[n])
+    text_final = str(added_sentence) + " " + str(searched_title) + " ;   " + str(sentence)
     return text_final

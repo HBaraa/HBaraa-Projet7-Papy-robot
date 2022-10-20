@@ -1,4 +1,5 @@
-﻿import requests
+﻿from turtle import title
+import requests
 
 
 class ApiWikiTitle:
@@ -17,8 +18,8 @@ class ApiWikiTitle:
 
     def get_wiki_title(self):
 
-        lat = self.coordinates["lat"]
-        lng = self.coordinates["lng"]
+        lat = self.coordinates.get("lat")
+        lng = self.coordinates.get("lng")
 
         # ATTRIBUTE DATAS FOR URL
         api_begin = "https://fr.wikipedia.org/w/api.php?action=query"
@@ -33,19 +34,26 @@ class ApiWikiTitle:
         geo_data = requests.get(url).json()
 
         # ATTRIBUTE RESPONSE
-        wiki_data = geo_data["query"]["geosearch"]
+        try:
+            wiki_data = geo_data["query"]["geosearch"]
+        except KeyError:
+            wiki_data = "Excuse-moi mon petit je n'est pas trouvé l'adresse"
+            print(wiki_data)
 
         # IF RESPONSE IS EMPTY RETURN NONE
-        if len(wiki_data) == 0:
-            return None
-        # ELSE
-        else:
-            self.title = wiki_data[0]["title"]
-            return self.title
+        try:
+            if len(wiki_data) == 0:
+                pass
+                return None
+            else:
+                self.title = wiki_data[0]["title"]
+        except TypeError:
+            self.title = ""
+        return self.title
 
 
 class WikipediaHistory:
-    def __init__(self, title):
+    def __init__(self, searched_title):
         """
             The WikipediaHistory class retrieves informations about the title
             searched.
@@ -55,7 +63,7 @@ class WikipediaHistory:
             str: the class returns the history (informations)
             of the title searched.
         """
-        self.title = title
+        self.title = searched_title
         self.anecdote = ""
         self.infos = self.text_data()
 
@@ -70,9 +78,12 @@ class WikipediaHistory:
         )
         url = f"{api_begin}{api_mid}{api_title}{api_param}"
         extract_data = requests.get(url).json()
-        self.anecdote = extract_data["query"]["pages"][0]
+        try:
+            self.anecdote = extract_data["query"]["pages"][0]
+        except KeyError:
+            self.anecdote = ""
         if len(self.anecdote) <= 3:
             return None
         else:
             self.infos = self.anecdote["extract"]
-            return self.infos
+        return self.infos

@@ -68,8 +68,8 @@ let form = document.querySelector("#user-text-form");
 let accueil = document.querySelector("#home");
 let show_info = document.querySelector("#grandpa");
 let load_pic = document.querySelector("#load");
-let infos_displayed = document.querySelector("#information")
-let mapdisp = document.querySelector("#map")
+let infos_displayed = document.querySelector("#information");
+let mapdisp = document.querySelector("#map");
 show_info.style.visibility = "hidden";
 let showtext = "";
 let papiresp = "";
@@ -95,7 +95,8 @@ form.addEventListener("submit", function (event) {
             words_list = response['reponse'];
             greeting = response['greeting'];
             coords = response["geodatas"];
-            address = response["adress"];
+            address = response["address"];
+            title = response["title"];
             function initialize() {
                 var map = L.map('map').setView(coords, 7); // LIGNE 18
                 var marker = L.marker(coords).addTo(map);
@@ -107,52 +108,31 @@ form.addEventListener("submit", function (event) {
                 map.addLayer(osmLayer);
             }
             initialize()
-            // console.log(response);
-            // console.log(words_list);
             function strUcFirst(a) { return (a + '').charAt(0).toUpperCase() + a.substr(1); }
             let greet_sentence = strUcFirst(response['greeting']);
-            // console.log(greeting);
-            if (greeting = "") {
-                if (words_list == "") {
-                    showtext = "Bonjour mon petit, j'ai pas compris ce que tu m'as dit 🤷‍♂️.Dis à papi clairement tu cherche quel endroit";
-                    papiresp = "Ok papi, je reformulerais ma demande";
-                    // console.log(showtext);
-                    linkref = "http://127.0.0.1:5000/"
-                    show_info.style.visibility = "hidden";
+            if (response["title"] != "") {
+                for (var i = 0; i < words_list.length; i++) {
+                    let word = words_list[i];
+                    paragraph += word;
+                    paragraph += " ";
                 }
-                else {
-                    for (var i = 0; i < words_list.length; i++) {
-                        let word = words_list[i];
-                        paragraph += word;
-                        paragraph += " ";
-                    }
-                    showtext = "Bonjour mon petit, Papi a compris que tu cherches " + paragraph + ". Attends mon poussin papi va te trouver cet endroit 🧐";
-                    papiresp = "Ok papi";
-                    linkref = "#grandpa";
-                }
-            } else if (greeting = ! "") {
-                if (words_list == "") {
-                    showtext = greet_sentence + " mon poussin 👋 , dis moi mon petit tu cherches quel endroit ?";
-                    papiresp = "Ok papi, je t'explique ma demande";
-                    // console.log(showtext);
-                    linkref = "http://127.0.0.1:5000/"
-                }
-                else {
-                    for (var i = 0; i < words_list.length; i++) {
-                        let word = words_list[i];
-                        paragraph += word;
-                        paragraph += " ";
-                    }
-                    showtext = greet_sentence + " mon poussin 👋, Papi a compris que tu cherches " + paragraph + ". Attends mon petit! papi va te trouver cet endroit 🧐 ";
-                    papiresp = "Ok papi";
-                    linkref = "#grandpa";
-                }
-            }
-            else {
-                showtext = "Dis à papy clairement ce que tu cherche mon petit 👴 🧐";
-                let key_words = paragraph;
+                showtext = greet_sentence + " mon poussin 👋, Papi a compris que tu cherches " + paragraph + ". Attends mon petit! papi va te trouver cet endroit 🧐 ";
                 papiresp = "Ok papi";
                 linkref = "#grandpa";
+            }
+            else if ((words_list == "") || (response["address"] == "") || response["geodatas"] == [0, 0]) {
+                showtext = "Bonjour mon petit, j'ai pas compris ce que tu m'as dit 🤷‍♂️.Dis à papi clairement tu cherche quel endroit";
+                papiresp = "Ok papi";
+                // console.log(showtext);
+                linkref = "http://127.0.0.1:5000/"
+                show_info.style.visibility = "hidden";
+            }
+            else {
+                showtext = "Bonjour mon petit, j'ai pas compris ce que tu m'as dit 🤷‍♂️.Dis à papi clairement tu cherche quel endroit";
+                papiresp = "Ok papi";
+                // console.log(showtext);
+                linkref = "http://127.0.0.1:5000/"
+                show_info.style.visibility = "hidden";
             }
             var question = $('#question').val();
             var papyresponse = showtext;
@@ -167,8 +147,8 @@ form.addEventListener("submit", function (event) {
             newtext.style.color = "magenta";
             newtext.style.background = "rgb(152, 205, 240)";
             var btn = document.createElement("button");
-            var t = document.createTextNode(papiresp);    // Créer un noeud textuel
-            btn.appendChild(t);   // Ajouter le texte au bouton
+            var t = document.createTextNode(papiresp);
+            btn.appendChild(t);
             btn.setAttribute('style', 'position:relative; left:42%;bottom:0%');
             chat_box.appendChild(btn);
             btn.style.background = "rgb(243, 188, 231)";
@@ -185,6 +165,7 @@ form.addEventListener("submit", function (event) {
                     if (response == "") {
                         pass;
                     } else {
+
                         setTimeout(() => {
                             load_pic.style.visibility = "visible";
                         }, 500);
@@ -193,6 +174,7 @@ form.addEventListener("submit", function (event) {
                             load_pic.style.visibility = "hidden";
                             show_info.style.visibility = "visible";
                             mapdisp.style.visibility = "visible";
+
                             var mapmargin = 5;
                             $('#map').css("height", ($(window).height() - mapmargin));
                             $('#map').css("z-index: 100");
@@ -207,17 +189,21 @@ form.addEventListener("submit", function (event) {
                                     $('#map').css("margin-top", 0);
                                 }
                             }
-                            var marker = L.marker(coords).addTo(map);
-                            marker.addTo(map);
-                            map.invalidateSize()
+                            if (typeof (x) !== 'undefined') {
+                                var marker = L.marker(coords).addTo(map);
+                                marker.addTo(map);
+                                map.invalidateSize();
+                            }
                         }, 5000);
                     }
+
                 });
                 paragraph = "";
                 if (form.addEventListener("submit", function (event) {
                     btn.style.visibility = "hidden";
                     greet_sentence.remove();
                 }));
+
             }
         })
 });
