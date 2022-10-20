@@ -97,17 +97,6 @@ form.addEventListener("submit", function (event) {
             coords = response["geodatas"];
             address = response["address"];
             title = response["title"];
-            function initialize() {
-                var map = L.map('map').setView(coords, 7); // LIGNE 18
-                var marker = L.marker(coords).addTo(map);
-                marker.addTo(map);
-                var osmLayer = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', { // LIGNE 20
-                    attribution: '© OpenStreetMap contributors',
-                    maxZoom: 12
-                });
-                map.addLayer(osmLayer);
-            }
-            initialize()
             function strUcFirst(a) { return (a + '').charAt(0).toUpperCase() + a.substr(1); }
             let greet_sentence = strUcFirst(response['greeting']);
             if (response["title"] != "") {
@@ -174,7 +163,17 @@ form.addEventListener("submit", function (event) {
                             load_pic.style.visibility = "hidden";
                             show_info.style.visibility = "visible";
                             mapdisp.style.visibility = "visible";
-
+                            function initialize() {
+                                var map = L.map('map').setView(coords, 7); // LIGNE 18
+                                var marker = L.marker(coords).addTo(map);
+                                marker.addTo(map);
+                                var osmLayer = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', { // LIGNE 20
+                                    attribution: '© OpenStreetMap contributors',
+                                    maxZoom: 12
+                                });
+                                map.addLayer(osmLayer);
+                            }
+                            initialize()
                             var mapmargin = 5;
                             $('#map').css("height", ($(window).height() - mapmargin));
                             $('#map').css("z-index: 100");
@@ -190,9 +189,18 @@ form.addEventListener("submit", function (event) {
                                 }
                             }
                             if (typeof (x) !== 'undefined') {
+                                function resize() {
+                                    if ($(window).width() >= 980) {
+                                        $('#map').css("height", ($(window).height() - mapmargin - 470));
+                                        $('#map').css("margin-top", 0);
+                                    } else {
+                                        $('#map').css("height", ($(window).height() - (mapmargin + 12)));
+                                        $('#map').css("margin-top", 0);
+                                    }
+                                }
                                 var marker = L.marker(coords).addTo(map);
                                 marker.addTo(map);
-                                map.invalidateSize();
+                                map.invalidateSize()
                             }
                         }, 5000);
                     }
