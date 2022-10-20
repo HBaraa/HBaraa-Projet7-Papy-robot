@@ -16,13 +16,16 @@ colorama==0.4.5
 dict==2020.12.3
 Django==3.2.15
 docopt==0.6.2
+Fiona
 flake8==5.0.4
 Flask==2.2.2
 folium==0.12.1.post1
+GDAL
 geographiclib==1.52
 geopandas==0.10.2
 geopy==2.2.0
 glad==0.1.36
+gunicorn==20.1.0
 idna==2.10
 importlib-metadata==4.2.0
 iniconfig==1.1.1
