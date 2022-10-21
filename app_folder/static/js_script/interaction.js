@@ -70,6 +70,7 @@ let show_info = document.querySelector("#grandpa");
 let load_pic = document.querySelector("#load");
 let infos_displayed = document.querySelector("#information");
 let mapdisp = document.querySelector("#map");
+let logo = document.querySelector("#papy_logo")
 show_info.style.visibility = "hidden";
 let showtext = "";
 let papiresp = "";
@@ -108,6 +109,7 @@ form.addEventListener("submit", function (event) {
                 showtext = greet_sentence + " mon poussin 👋, Papi a compris que tu cherches " + paragraph + ". Attends mon petit! papi va te trouver cet endroit 🧐 ";
                 papiresp = "Ok papi";
                 linkref = "#grandpa";
+                logo.style.visibility = "hidden";
             }
             else if ((words_list == "") || (response["address"] == "") || response["geodatas"] == [0, 0]) {
                 showtext = "Bonjour mon petit, j'ai pas compris ce que tu m'as dit 🤷‍♂️.Dis à papi clairement tu cherche quel endroit";
@@ -125,6 +127,7 @@ form.addEventListener("submit", function (event) {
                 showtext = greet_sentence + " mon poussin 👋, Papi a compris que tu cherches " + paragraph + ". Attends mon petit! papi va te trouver cet endroit 🧐 ";
                 papiresp = "Ok papi";
                 linkref = "#grandpa";
+                logo.style.visibility = "hidden";
             }
             var question = $('#question').val();
             var papyresponse = showtext;
