@@ -100,7 +100,7 @@ form.addEventListener("submit", function (event) {
             title = response["title"];
             function strUcFirst(a) { return (a + '').charAt(0).toUpperCase() + a.substr(1); }
             let greet_sentence = strUcFirst(response['greeting']);
-            if (response["title"] !== "") {
+            if ((response["title"] !== "") && (words_list !== "")) {
                 for (var i = 0; i < words_list.length; i++) {
                     let word = words_list[i];
                     paragraph += word;
@@ -125,16 +125,19 @@ form.addEventListener("submit", function (event) {
                 linkref = "http://127.0.0.1:5000/"
                 show_info.style.visibility = "hidden";
             }
-            else {
-                for (var i = 0; i < words_list.length; i++) {
-                    let word = words_list[i];
-                    paragraph += word;
-                    paragraph += " ";
-                }
-                showtext = greet_sentence + " mon poussin 👋, Papi a compris que tu cherches " + paragraph + ". Attends mon petit! papi va te trouver cet endroit 🧐 ";
+            else if ((response["address"] == "") && (response["title"] == "")) {
+                showtext = "Bonjour mon petit, j'ai pas compris ce que tu m'as dit 🤷‍♂️.Dis à papi clairement tu cherche quel endroit";
                 papiresp = "Ok papi";
-                linkref = "#grandpa";
-                logo.style.visibility = "hidden";
+                // console.log(showtext);
+                linkref = "http://127.0.0.1:5000/"
+                show_info.style.visibility = "hidden";
+            }
+            else {
+                showtext = "Bonjour mon petit, j'ai pas compris ce que tu m'as dit 🤷‍♂️.Dis à papi clairement tu cherche quel endroit";
+                papiresp = "Ok papi";
+                // console.log(showtext);
+                linkref = "http://127.0.0.1:5000/"
+                show_info.style.visibility = "hidden";
             }
             var question = $('#question').val();
             var papyresponse = showtext;
