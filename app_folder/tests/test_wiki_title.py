@@ -1,6 +1,5 @@
 ﻿import requests
 
-
 from ..papy_robot.wikipedia_api import ApiWikiTitle
 
 

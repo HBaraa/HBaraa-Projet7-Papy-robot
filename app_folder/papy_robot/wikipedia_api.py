@@ -1,5 +1,4 @@
-﻿from turtle import title
-import requests
+﻿import requests
 
 
 class ApiWikiTitle:
