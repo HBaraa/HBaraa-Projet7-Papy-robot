@@ -81,6 +81,8 @@
     "morning",
     "evening",
     "please",
+    "how",
+    "go",
     "brrr",
     "c",
     "car",
