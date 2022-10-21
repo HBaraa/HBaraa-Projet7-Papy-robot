@@ -118,6 +118,13 @@ form.addEventListener("submit", function (event) {
                 linkref = "http://127.0.0.1:5000/"
                 show_info.style.visibility = "hidden";
             }
+            else if (greet_sentence !== "") {
+                showtext = "Bonjour mon petit, j'ai pas compris ce que tu m'as dit 🤷‍♂️.Dis à papi clairement tu cherche quel endroit";
+                papiresp = "Ok papi";
+                // console.log(showtext);
+                linkref = "http://127.0.0.1:5000/"
+                show_info.style.visibility = "hidden";
+            }
             else {
                 for (var i = 0; i < words_list.length; i++) {
                     let word = words_list[i];
@@ -144,7 +151,7 @@ form.addEventListener("submit", function (event) {
             var btn = document.createElement("button");
             var t = document.createTextNode(papiresp);
             btn.appendChild(t);
-            btn.setAttribute('style', 'position:relative; left:42%;bottom:0%');
+            btn.setAttribute('style', 'position:relative; left:45%;bottom:0%');
             chat_box.appendChild(btn);
             btn.style.background = "rgb(243, 188, 231)";
             if (words_list = ! "") {
@@ -152,6 +159,8 @@ form.addEventListener("submit", function (event) {
                     event.preventDefault();
                     setTimeout(() => {
                         load_pic.style.visibility = "visible";
+                        load_pic.style.left = "0%";
+                        load_pic.style.top = "0%";
                     }, 5000);
                     newtext.remove();
                     btn.remove();
@@ -228,4 +237,5 @@ startpresent.addEventListener("click", function (event) {
     accueil.style.visibility = "hidden";
     show_info.style.visibility = "hidden";
     present.style.visibility = "visible";
+    mapdisp.style.visibility = "hidden"
 })
