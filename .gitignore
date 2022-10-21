@@ -1,6 +1,4 @@
-﻿.vscode
-.venv
-# Created by https://www.toptal.com/developers/gitignore/api/python
+﻿# Created by https://www.toptal.com/developers/gitignore/api/python
 # Edit at https://www.toptal.com/developers/gitignore?templates=python
 
 ### Python ###
@@ -8,22 +6,19 @@
 __pycache__/
 *.py[cod]
 *$py.class
-.vscode
-.venv
-__pycache__
 
 # C extensions
 *.so
 
 # Distribution / packaging
 .Python
+.vscode
 build/
 develop-eggs/
 dist/
 downloads/
 eggs/
 .eggs/
-.venv
 lib/
 lib64/
 parts/
@@ -170,4 +165,3 @@ cython_debug/
 #.idea/
 
 # End of https://www.toptal.com/developers/gitignore/api/python
-__pycache__
