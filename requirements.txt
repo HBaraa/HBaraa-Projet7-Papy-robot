@@ -13,8 +13,6 @@ heroku==0.1.4
 iniconfig==1.1.1
 itsdangerous==2.1.2
 Jinja2==3.1.2
-numpy==1.17.0
-packaging==21.3
 pytest==7.1.2
 requests==2.25.1
 str==0.1
