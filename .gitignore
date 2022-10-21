@@ -9,6 +9,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 .vscode
+.venv
 __pycache__
 
 # C extensions
@@ -22,6 +23,7 @@ dist/
 downloads/
 eggs/
 .eggs/
+.venv
 lib/
 lib64/
 parts/
