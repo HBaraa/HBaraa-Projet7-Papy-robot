@@ -18,3 +18,4 @@ requests==2.25.1
 str==0.1
 turtle==0.0.1
 urllib3==1.26.3
+numpy
