@@ -63,5 +63,5 @@ def add_random_quotes(searched_title, sentence):
     nbr = len(first_quotes_list)
     n = random.randint(0, nbr-1)
     added_sentence = str(first_quotes_list[n])
-    text_final = str(added_sentence) + " " + str(searched_title) + " ;   " + str(sentence)
+    text_final = str(added_sentence) + " " + str(searched_title) + " ;   " + str(sentence)  # noqa
     return text_final
