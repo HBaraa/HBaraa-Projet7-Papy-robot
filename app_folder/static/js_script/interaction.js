@@ -99,7 +99,7 @@ form.addEventListener("submit", function (event) {
             title = response["title"];
             function strUcFirst(a) { return (a + '').charAt(0).toUpperCase() + a.substr(1); }
             let greet_sentence = strUcFirst(response['greeting']);
-            if (response["title"] != "") {
+            if (response["title"] !== "") {
                 for (var i = 0; i < words_list.length; i++) {
                     let word = words_list[i];
                     paragraph += word;
