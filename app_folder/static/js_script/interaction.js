@@ -139,7 +139,7 @@ form.addEventListener("submit", function (event) {
             else {
                 showtext = "Bonjour mon petit, j'ai pas compris ce que tu m'as dit 🤷‍♂️.Dis à papi clairement tu cherche quel endroit";
                 papiresp = "Ok papi";
-                linkref = "https://pro7-papyrobot.herokuapp.com/#grandpa";
+                linkref = "https://pro7-papyrobot.herokuapp.com/#home";
                 show_info.style.visibility = "hidden";
             }
             var question = $('#question').val();
