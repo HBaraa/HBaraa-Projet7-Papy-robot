@@ -70,7 +70,7 @@ let show_info = document.querySelector("#grandpa");
 let load_pic = document.querySelector("#load");
 let infos_displayed = document.querySelector("#information");
 let mapdisp = document.querySelector("#map");
-
+let pagefoot = document.querySelector("footer-below");
 show_info.style.visibility = "hidden";
 let showtext = "";
 let papiresp = "";
@@ -187,6 +187,7 @@ form.addEventListener("submit", function (event) {
                         setTimeout(() => {
                             infos_displayed.append("L'adresse est  :  ", response["address"], "               .............                ", response["datas"]);
                             load_pic.style.visibility = "hidden";
+                            load_pic.style.pagefoot = "hidden";
                             show_info.style.visibility = "visible";
                             mapdisp.style.visibility = "visible";
                             function initialize() {
