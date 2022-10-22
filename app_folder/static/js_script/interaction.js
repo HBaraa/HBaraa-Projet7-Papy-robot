@@ -113,25 +113,25 @@ form.addEventListener("submit", function (event) {
                 else if ((words_list == "") || (response["address"] == "") || response["geodatas"] == [0, 0]) {
                     showtext = "Bonjour mon petit, j'ai pas compris ce que tu m'as dit 🤷‍♂️.Dis à papi clairement tu cherche quel endroit";
                     papiresp = "Ok papi";
-                    linkref = "http://127.0.0.1:5000/";
+                    linkref = "https://pro7-papyrobot.herokuapp.com/#grandpa";
                     show_info.style.visibility = "hidden";
                 }
                 else if (greet_sentence !== "") {
                     showtext = "Bonjour mon petit, j'ai pas compris ce que tu m'as dit 🤷‍♂️.Dis à papi clairement tu cherche quel endroit";
                     papiresp = "Ok papi";
-                    linkref = "http://127.0.0.1:5000/";
+                    linkref = "https://pro7-papyrobot.herokuapp.com/#grandpa";
                     show_info.style.visibility = "hidden";
                 }
                 else if ((response["address"] == "") && (response["title"] == "")) {
                     showtext = "Bonjour mon petit, j'ai pas compris ce que tu m'as dit 🤷‍♂️.Dis à papi clairement tu cherche quel endroit";
                     papiresp = "Ok papi";
-                    linkref = "http://127.0.0.1:5000/";
+                    linkref = "https://pro7-papyrobot.herokuapp.com/#grandpa";
                     show_info.style.visibility = "hidden";
                 }
                 else {
                     showtext = "Bonjour mon petit, j'ai pas compris ce que tu m'as dit 🤷‍♂️.Dis à papi clairement tu cherche quel endroit";
                     papiresp = "Ok papi";
-                    linkref = "http://127.0.0.1:5000/";
+                    linkref = "https://pro7-papyrobot.herokuapp.com/#grandpa";
                     show_info.style.visibility = "hidden";
                 }
             }
@@ -139,7 +139,7 @@ form.addEventListener("submit", function (event) {
             else {
                 showtext = "Bonjour mon petit, j'ai pas compris ce que tu m'as dit 🤷‍♂️.Dis à papi clairement tu cherche quel endroit";
                 papiresp = "Ok papi";
-                linkref = "http://127.0.0.1:5000/";
+                linkref = "https://pro7-papyrobot.herokuapp.com/#grandpa";
                 show_info.style.visibility = "hidden";
             }
             var question = $('#question').val();
