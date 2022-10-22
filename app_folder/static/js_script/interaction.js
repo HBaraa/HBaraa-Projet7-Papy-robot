@@ -187,7 +187,6 @@ form.addEventListener("submit", function (event) {
                         setTimeout(() => {
                             infos_displayed.append("L'adresse est  :  ", response["address"], "               .............                ", response["datas"]);
                             load_pic.style.visibility = "hidden";
-                            load_pic.style.pagefoot = "hidden";
                             show_info.style.visibility = "visible";
                             mapdisp.style.visibility = "visible";
                             function initialize() {
