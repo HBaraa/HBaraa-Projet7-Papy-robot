@@ -6,9 +6,9 @@
 }
 
 function create_response_div(grandpa_resp) {
-    var chat_entry = document.createElement("div")
+    var chat_entry = document.createElement("div");
     chat_entry.setAttribute('class', 'chat');
-    var chat_avatar = document.createElement("div")
+    var chat_avatar = document.createElement("div");
     chat_avatar.setAttribute('class', 'chat-avatar');
     var you = document.createElement("a");
     you.setAttribute('class', 'avatar avatar-online');
@@ -16,29 +16,29 @@ function create_response_div(grandpa_resp) {
     you.setAttribute('href', '#');
     you.setAttribute('data-placement', 'left');
     you.setAttribute('title', '');
-    var img = document.createElement("img")
+    var img = document.createElement("img");
     img.setAttribute('src', '../static/images/papy.png');
     img.setAttribute('alt', 'papyimage');
     img.setAttribute('style', 'position:absolute; left:0px; width:30px; height:30px');
-    you.appendChild(img)
-    chat_avatar.appendChild(you)
-    chat_entry.appendChild(chat_avatar)
-    var chat_body = document.createElement("div")
+    you.appendChild(img);
+    chat_avatar.appendChild(you);
+    chat_entry.appendChild(chat_avatar);
+    var chat_body = document.createElement("div");
     chat_body.setAttribute('class', 'chat-body');
     chat_body.setAttribute('style', 'background-color: rgb(145, 182, 238);');
-    var chat_content = document.createElement("div")
-    var grandpy = create_element("p", grandpa_resp)
+    var chat_content = document.createElement("div");
+    var grandpy = create_element("p", grandpa_resp);
     grandpy.setAttribute('style', 'position:absolute; left:45px;background-color: rgb(221, 192, 215)');
-    chat_content.appendChild(grandpy)
-    chat_body.appendChild(chat_content)
-    chat_entry.appendChild(chat_body)
+    chat_content.appendChild(grandpy);
+    chat_body.appendChild(chat_content);
+    chat_entry.appendChild(chat_body);
     return chat_entry
 }
 
 function create_question_div(question) {
-    var chat_entry = document.createElement("div")
+    var chat_entry = document.createElement("div");
     chat_entry.setAttribute('class', 'chat');
-    var chat_avatar = document.createElement("div")
+    var chat_avatar = document.createElement("div");
     chat_avatar.setAttribute('class', 'chat-avatar');
     var you = document.createElement("a");
     you.setAttribute('class', 'avatar avatar-online');
@@ -46,21 +46,21 @@ function create_question_div(question) {
     you.setAttribute('href', '#');
     you.setAttribute('data-placement', 'left');
     you.setAttribute('title', '');
-    var img = document.createElement("img")
+    var img = document.createElement("img");
     img.setAttribute('src', '../static/images/user_pic.png');
     img.setAttribute('alt', 'papyimage');
     img.setAttribute('style', 'position:absolute; right:0px; width:30px; height:30px');
-    you.appendChild(img)
-    chat_avatar.appendChild(you)
-    chat_entry.appendChild(chat_avatar)
-    var chat_body = document.createElement("div")
+    you.appendChild(img);
+    chat_avatar.appendChild(you);
+    chat_entry.appendChild(chat_avatar);
+    var chat_body = document.createElement("div");
     chat_body.setAttribute('class', 'chat-body');
-    var chat_content = document.createElement("div")
+    var chat_content = document.createElement("div");
     chat_content.setAttribute('class', 'chat-content');
-    var grandpy = create_element("p", question)
-    chat_content.appendChild(grandpy)
-    chat_body.appendChild(chat_content)
-    chat_entry.appendChild(chat_body)
+    var grandpy = create_element("p", question);
+    chat_content.appendChild(grandpy);
+    chat_body.appendChild(chat_content);
+    chat_entry.appendChild(chat_body);
     return chat_entry
 }
 
@@ -113,25 +113,25 @@ form.addEventListener("submit", function (event) {
                 else if ((words_list == "") || (response["address"] == "") || response["geodatas"] == [0, 0]) {
                     showtext = "Bonjour mon petit, j'ai pas compris ce que tu m'as dit 🤷‍♂️.Dis à papi clairement tu cherche quel endroit";
                     papiresp = "Ok papi";
-                    linkref = "http://127.0.0.1:5000/"
+                    linkref = "http://127.0.0.1:5000/";
                     show_info.style.visibility = "hidden";
                 }
                 else if (greet_sentence !== "") {
                     showtext = "Bonjour mon petit, j'ai pas compris ce que tu m'as dit 🤷‍♂️.Dis à papi clairement tu cherche quel endroit";
                     papiresp = "Ok papi";
-                    linkref = "http://127.0.0.1:5000/"
+                    linkref = "http://127.0.0.1:5000/";
                     show_info.style.visibility = "hidden";
                 }
                 else if ((response["address"] == "") && (response["title"] == "")) {
                     showtext = "Bonjour mon petit, j'ai pas compris ce que tu m'as dit 🤷‍♂️.Dis à papi clairement tu cherche quel endroit";
                     papiresp = "Ok papi";
-                    linkref = "http://127.0.0.1:5000/"
+                    linkref = "http://127.0.0.1:5000/";
                     show_info.style.visibility = "hidden";
                 }
                 else {
                     showtext = "Bonjour mon petit, j'ai pas compris ce que tu m'as dit 🤷‍♂️.Dis à papi clairement tu cherche quel endroit";
                     papiresp = "Ok papi";
-                    linkref = "http://127.0.0.1:5000/"
+                    linkref = "http://127.0.0.1:5000/";
                     show_info.style.visibility = "hidden";
                 }
             }
@@ -139,7 +139,7 @@ form.addEventListener("submit", function (event) {
             else {
                 showtext = "Bonjour mon petit, j'ai pas compris ce que tu m'as dit 🤷‍♂️.Dis à papi clairement tu cherche quel endroit";
                 papiresp = "Ok papi";
-                linkref = "http://127.0.0.1:5000/"
+                linkref = "http://127.0.0.1:5000/";
                 show_info.style.visibility = "hidden";
             }
             var question = $('#question').val();
@@ -221,11 +221,10 @@ form.addEventListener("submit", function (event) {
                                 }
                                 var marker = L.marker(coords).addTo(map);
                                 marker.addTo(map);
-                                map.invalidateSize()
+                                map.invalidateSize();
                             }
                         }, 5000);
                     }
-
                 });
                 paragraph = "";
                 if (form.addEventListener("submit", function (event) {
@@ -243,5 +242,5 @@ startpresent.addEventListener("click", function (event) {
     accueil.style.visibility = "hidden";
     show_info.style.visibility = "hidden";
     present.style.visibility = "visible";
-    mapdisp.style.visibility = "hidden"
+    mapdisp.style.visibility = "hidden";
 })
