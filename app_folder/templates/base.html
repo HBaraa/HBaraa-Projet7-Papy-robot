@@ -42,8 +42,113 @@
             </div>
         </div>
     </nav>
-
-    {% block content %}{% endblock %}
+    <div class="container">
+        <div class="home" id="home" style=" visibility:visible; " style="position:relative; top: 100px;">
+            <div class="row">
+                <div class="col-lg-12" style="position:relative;  width:30px; height:30px; top:10px;">
+                    <h6 style="color:#0026ff; ">Bienvenue chez GrandPy! 👴🤖</h6>
+                </div>
+            </div>
+            <div class="row" style="position:relative; top:0px;">
+                <div class=" col-lg-12 col-md-4 text-center d-block w-800">
+                    <section class="main-section" id="signup" style="position:relative; top:40px;">
+                        <div class="card" style="background-color: rgba(241, 213, 243, 0.986);border: 1px solid rgba(226, 176, 230, 0.986); padding:12px;
+                        margin-bottom:20px;">
+                            <div class="card-body">
+                                <h6>Tu cherches un lieu?</h6>
+                                <div class="chat-box" id="chat-box">
+                                    <div class="question"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-block w-400 ">
+                        </div>
+                        <div class="card" style="border: 1px solid black;">
+                            <div class="card-body">
+                                <form id="user-text-form">
+                                    <div class="input-group">
+                                        <div class="chat-avatar">
+                                            <a class="avatar avatar-online" data-toggle="tooltip" href="#"
+                                                data-placement="left" title="">
+                                                <i></i>
+                                            </a>
+                                        </div>
+                                        <input id="question" name="question" type="text" maxlength="100"
+                                            class="form-control"
+                                            autocomplete="off"
+                                            placeholder="Dis moi mon petit comment Papy peut t'aider et où désires-tu aller ?"
+                                            required>
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-secondary" id="demand" type="submit">Chercher</button>
+                                        </span>
+                                        <div id="output"></div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="presentation" style=" visibility:hidden; position:absolute; left: 20%; top:20%;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-3">
+                    <div class="card" style="background-color: rgb(119, 220, 238);">
+                        <img src="../static/images/me.png" alt=" me" class="card-img-top"
+                            style="width: 100px; height: 100px;">
+                        <div class="card-body">
+                            <h4 class="text-center" style=" color:#2a1baf;">Hamdi Baraa</h4>
+                            <hr class="star-light">
+                            <h5 class="text-center" style="font-style: italic;"> <strong>
+                                    Ingénieure
+                                    mécatronicienne
+                                    et étudiante chez
+                                    OpenClasrooms </strong></h5>
+                            <hr class="star-light">
+                            <p class="text-center" style="font-style: italic">J'ai réalisé ce projet avec une
+                                grande
+                                motivation dans le cadre
+                                du projet
+                                7
+                                du parcours de développeur d'application chez OpenClassrooms</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="load" class="load"
+        style=" visibility:hidden; width: 300px; height: 350px; position:absolute; left: 40%; top:25%;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <img src="../static/images/load_pic.gif" alt="loading" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" style=" position:absolute; left:16%; top:10%;">
+        <div class="row">
+            <div class="col-lg-4 col-md-3">
+                <div class="grandpa" id="grandpa" style=" visibility:hidden;">
+                    <div class="card" style="background-color: rgb(233, 124, 151);">
+                        <div class="col-lg-12 col-md-3 ">
+                            <h1>Search result </h1>
+                            <p id="information" class="information" name="information"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-3" >
+                <div class="card">
+                    <div calss="map" id="map"  style="visibility:hidden; position: absolute; top: 0; bottom: 0; width: 100%; height: 400px;  /* or as desired */ width: 100%; visibility: hidden ">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <footer class="text-center">
