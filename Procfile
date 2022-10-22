@@ -1,2 +1,2 @@
 web: gunicorn app_folder:app
-web: python main.py runserver 0.0.0.0:5000
+web: python wsgi.py runserver 0.0.0.0:5000
