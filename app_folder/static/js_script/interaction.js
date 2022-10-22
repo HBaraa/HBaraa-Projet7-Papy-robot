@@ -70,7 +70,6 @@ let show_info = document.querySelector("#grandpa");
 let load_pic = document.querySelector("#load");
 let infos_displayed = document.querySelector("#information");
 let mapdisp = document.querySelector("#map");
-let pagefoot = document.querySelector("footer-below");
 show_info.style.visibility = "hidden";
 let showtext = "";
 let papiresp = "";
@@ -101,7 +100,7 @@ form.addEventListener("submit", function (event) {
             function strUcFirst(a) { return (a + '').charAt(0).toUpperCase() + a.substr(1); }
             let greet_sentence = strUcFirst(response['greeting']);
             if (response['reponse'] !== "") {
-                if ((response["title"] !== "") && (words_list !== "")) {
+                if ((response["title"] !== "") && (words_list !== "") && response["geodatas"] !== [0, 0]) {
                     for (var i = 0; i < words_list.length; i++) {
                         let word = words_list[i];
                         paragraph += word;
@@ -114,36 +113,32 @@ form.addEventListener("submit", function (event) {
                 else if ((words_list == "") || (response["address"] == "") || response["geodatas"] == [0, 0]) {
                     showtext = "Bonjour mon petit, j'ai pas compris ce que tu m'as dit 🤷‍♂️.Dis à papi clairement tu cherche quel endroit";
                     papiresp = "Ok papi";
-                    // console.log(showtext);
                     linkref = "http://127.0.0.1:5000/"
                     show_info.style.visibility = "hidden";
                 }
                 else if (greet_sentence !== "") {
                     showtext = "Bonjour mon petit, j'ai pas compris ce que tu m'as dit 🤷‍♂️.Dis à papi clairement tu cherche quel endroit";
                     papiresp = "Ok papi";
-                    // console.log(showtext);
                     linkref = "http://127.0.0.1:5000/"
                     show_info.style.visibility = "hidden";
                 }
                 else if ((response["address"] == "") && (response["title"] == "")) {
                     showtext = "Bonjour mon petit, j'ai pas compris ce que tu m'as dit 🤷‍♂️.Dis à papi clairement tu cherche quel endroit";
                     papiresp = "Ok papi";
-                    // console.log(showtext);
                     linkref = "http://127.0.0.1:5000/"
                     show_info.style.visibility = "hidden";
                 }
                 else {
                     showtext = "Bonjour mon petit, j'ai pas compris ce que tu m'as dit 🤷‍♂️.Dis à papi clairement tu cherche quel endroit";
                     papiresp = "Ok papi";
-                    // console.log(showtext);
                     linkref = "http://127.0.0.1:5000/"
                     show_info.style.visibility = "hidden";
                 }
             }
+
             else {
                 showtext = "Bonjour mon petit, j'ai pas compris ce que tu m'as dit 🤷‍♂️.Dis à papi clairement tu cherche quel endroit";
                 papiresp = "Ok papi";
-                // console.log(showtext);
                 linkref = "http://127.0.0.1:5000/"
                 show_info.style.visibility = "hidden";
             }
@@ -179,8 +174,8 @@ form.addEventListener("submit", function (event) {
                     accueil.style.visibility = "hidden";
                     if (response == "") {
                         pass;
-                    } else {
-
+                    }
+                    else {
                         setTimeout(() => {
                             load_pic.style.visibility = "visible";
                         }, 500);
